@@ -1,7 +1,6 @@
 const EyeIcon = () => {
   return (
     <>
-      return ({" "}
       <svg
         width="16"
         height="16"
@@ -13,7 +12,6 @@ const EyeIcon = () => {
           <circle cx="466.08" cy="466.02" r="134.5" />
         </g>
       </svg>
-      )
     </>
   );
 };

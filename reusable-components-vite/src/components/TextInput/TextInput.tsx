@@ -11,6 +11,8 @@ interface Props {
   value: any;
   error: string;
   children: ReactNode;
+  maxLength: number;
+  minLength: number;
   onChange: () => void;
 }
 
