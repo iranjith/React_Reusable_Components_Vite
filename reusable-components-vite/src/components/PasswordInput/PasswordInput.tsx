@@ -57,7 +57,7 @@ const PasswordInput = ({
         </a>
       )}
       {/* {value.length > 0 && quality && (
-        <ProgressBar percent={quality} width={130} />
+        <ProgressBar percent={quality} width={130} />p
       )} */}
     </TextInput>
   );
