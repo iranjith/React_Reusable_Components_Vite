@@ -8,7 +8,7 @@ interface PasswordProps {
   name: string;
   value: any;
   label?: string;
-  onChange: () => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   maxLength?: number;
   minLength?: number;
   placeholder: string;

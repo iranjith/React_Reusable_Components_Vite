@@ -10,10 +10,10 @@ interface Props {
   required: boolean;
   value: any;
   error: string;
-  children: ReactNode;
-  maxLength: number;
-  minLength: number;
-  onChange: () => void;
+  children?: ReactNode;
+  maxLength?: number;
+  minLength?: number;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const TextInput = ({
