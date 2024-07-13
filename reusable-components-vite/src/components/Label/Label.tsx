@@ -1,5 +1,3 @@
-import React from "react";
-
 interface Props {
   htmlFor: string;
   label: string;
