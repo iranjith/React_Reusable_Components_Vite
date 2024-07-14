@@ -3,7 +3,7 @@ import { fn } from "@storybook/test";
 import TextInput from "../components/TextInput/TextInput";
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Example/TextInput",
+  title: "Atoms/TextInput",
   component: TextInput,
   parameters: {
     layout: "centered",

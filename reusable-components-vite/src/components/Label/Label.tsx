@@ -1,3 +1,5 @@
+import { InputLabel } from "@mui/material";
+
 interface Props {
   htmlFor: string;
   label: string;

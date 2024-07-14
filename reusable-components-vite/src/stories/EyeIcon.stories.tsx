@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import EyeIcon from "../components/EyeIcon/EyeIcon";
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Example/EyeIcon",
+  title: "Atoms/EyeIcon",
   component: EyeIcon,
   parameters: {
     layout: "centered",

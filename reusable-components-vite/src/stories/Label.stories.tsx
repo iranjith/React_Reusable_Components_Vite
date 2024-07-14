@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Label from "../components/Label/Label";
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+
 const meta = {
-  title: "Example/Label",
+  title: "Atoms/Label",
   component: Label,
   parameters: {
     layout: "centered",

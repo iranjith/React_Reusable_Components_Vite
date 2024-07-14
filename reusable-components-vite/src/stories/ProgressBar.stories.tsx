@@ -3,7 +3,7 @@ import { fn } from "@storybook/test";
 import ProgressBar from "../components/ProgressBar/ProgressBar";
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Example/ProgressBar",
+  title: "Atoms/ProgressBar",
   component: ProgressBar,
   parameters: {
     layout: "centered",
