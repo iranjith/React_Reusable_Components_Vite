@@ -7,6 +7,6 @@ import AgGrid from "./components/AgGrid/AgGrid.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <AgGrid />
+    <App />
   </React.StrictMode>
 );

@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { Box, TextField } from "@mui/material";
 import Label from "../Label/Label";
+import "./TextInputBEM.css";
 
 interface Props {
   htmlId: string;
@@ -17,7 +18,7 @@ interface Props {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const TextInput = ({
+const TextInputBEM = ({
   htmlId,
   name,
   label,
@@ -31,7 +32,7 @@ const TextInput = ({
   ...props
 }: Props) => {
   return (
-    <div style={{ marginBottom: 16 }}>
+    <div className="textinput">
       <Label htmlFor={htmlId} label={label} required={required} />
       <input
         id={htmlId}
@@ -40,17 +41,13 @@ const TextInput = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        style={error && { border: "solid 1px red" }}
+        className={error && "textinput__input--state-error"}
         {...props}
       />
       {children}
-      {error && (
-        <div className="error" style={{ color: "red" }}>
-          {error}
-        </div>
-      )}
+      {error && <div className="textinput__error">{error}</div>}
     </div>
   );
 };
 
-export default TextInput;
+export default TextInputBEM;
