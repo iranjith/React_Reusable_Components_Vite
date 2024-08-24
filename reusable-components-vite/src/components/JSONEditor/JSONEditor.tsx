@@ -1,25 +1,20 @@
 import { Box, TextField } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 interface JSONEditorProps {
-  jsonData: any;
-  onChange: (newJsonData: any) => void;
+  onSchemaChange: (newJsonData: any) => void;
 }
 
-const JSONEditor = ({ jsonData, onChange }: JSONEditorProps) => {
-  const [textValue, setTextValue] = useState(JSON.stringify(jsonData, null, 2));
-
-  useEffect(() => {
-    setTextValue(JSON.stringify(jsonData, null, 2));
-  }, [jsonData]);
+const JSONEditor = ({ onSchemaChange }: JSONEditorProps) => {
+  const [textValue, setTextValue] = useState("");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTextValue(event.target.value);
     try {
-      const parsedJson = JSON.parse(event.target.value);
-      onChange(parsedJson);
+      const parsedSchema = JSON.parse(event.target.value);
+      onSchemaChange(parsedSchema);
     } catch (error) {
-      // Handle JSON parse error if needed
+      console.log(error);
     }
   };
 
@@ -27,7 +22,7 @@ const JSONEditor = ({ jsonData, onChange }: JSONEditorProps) => {
     <Box
       component="form"
       sx={{
-        "& .MuiTextField-root": { m: 1, width: "70ch" },
+        "& .MuiTextField-root": { m: 1, width: "50ch" },
       }}
       noValidate
       autoComplete="off"
@@ -36,7 +31,7 @@ const JSONEditor = ({ jsonData, onChange }: JSONEditorProps) => {
         value={textValue}
         onChange={handleChange}
         multiline
-        rows={50}
+        rows={20}
         fullWidth
         variant="outlined"
         label="JSON Data"
@@ -46,3 +41,7 @@ const JSONEditor = ({ jsonData, onChange }: JSONEditorProps) => {
 };
 
 export default JSONEditor;
+
+// useEffect(() => {
+//   setTextValue(JSON.stringify(jsonData, null, 2));
+// }, [jsonData]);
