@@ -4,7 +4,7 @@ import { create } from "@storybook/theming/create";
 
 const theme = create({
   base: "dark", // or 'dark'
-  brandTitle: "Ranjith's React Reusable Components",
+  brandTitle: "Ranjith's UI Playground",
 });
 
 addons.setConfig({
