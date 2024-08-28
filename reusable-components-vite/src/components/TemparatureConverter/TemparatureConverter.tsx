@@ -37,7 +37,6 @@ const TemparatureConverter = () => {
             name="celsius"
             type="number"
             value={celsius}
-            min={1}
             onChange={onCelsiusChange}
           />
           <span
@@ -55,7 +54,6 @@ const TemparatureConverter = () => {
             id="farenheit"
             name="farenheit"
             value={farenheit}
-            min={32}
             onChange={onFHChange}
           />
           <label
