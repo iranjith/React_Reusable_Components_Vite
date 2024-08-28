@@ -5,6 +5,7 @@ import JSONSchemaPlayground from "./components/JSONSchemaPlayground/JSONSchemaPl
 import DynamicTable from "./components/DynamicTable/DynamicTable";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import TemparatureConverter from "./components/TemparatureConverter/TemparatureConverter";
+import ToDoList from "./components/ToDoList/ToDoList";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +17,8 @@ function App() {
       </QueryClientProvider> */}
       {/* <DynamicTable /> */}
       {/* <JSONSchemaPlayground /> */}
-      <TemparatureConverter />
+      {/* <TemparatureConverter /> */}
+      <ToDoList />
     </>
   );
 }
