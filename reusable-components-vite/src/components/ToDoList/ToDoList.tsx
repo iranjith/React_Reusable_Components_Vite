@@ -21,6 +21,9 @@ const ToDoList = () => {
         <div>
           <input
             type="text"
+            id="addTask"
+            name="addTask"
+            aria-label="Add new task"
             ref={ref}
             style={{
               border: "1px solid black",

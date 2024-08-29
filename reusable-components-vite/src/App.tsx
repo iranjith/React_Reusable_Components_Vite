@@ -6,6 +6,7 @@ import DynamicTable from "./components/DynamicTable/DynamicTable";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import TemparatureConverter from "./components/TemparatureConverter/TemparatureConverter";
 import ToDoList from "./components/ToDoList/ToDoList";
+import MortgageConverter from "./components/MortgageConverter/MortgageConverter";
 
 const queryClient = new QueryClient();
 
@@ -18,7 +19,8 @@ function App() {
       {/* <DynamicTable /> */}
       {/* <JSONSchemaPlayground /> */}
       {/* <TemparatureConverter /> */}
-      <ToDoList />
+      {/* <ToDoList /> */}
+      <MortgageConverter />
     </>
   );
 }
