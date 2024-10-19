@@ -7,8 +7,9 @@ import ProgressBar from "./components/ProgressBar/ProgressBar";
 import TemparatureConverter from "./components/TemparatureConverter/TemparatureConverter";
 import ToDoList from "./components/ToDoList/ToDoList";
 import MortgageConverter from "./components/MortgageConverter/MortgageConverter";
+import Welcome from "./components/Emails/Welcome";
 
-const queryClient = new QueryClient();
+//const queryClient = new QueryClient();
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
       {/* <JSONSchemaPlayground /> */}
       {/* <TemparatureConverter /> */}
       {/* <ToDoList /> */}
-      <MortgageConverter />
+      {/* <MortgageConverter /> */}
+      <Welcome />
     </>
   );
 }
