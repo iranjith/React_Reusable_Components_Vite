@@ -1,4 +1,4 @@
-interface Props {
+export interface Props {
   percent: number;
   width: number;
   height?: number;

@@ -1,9 +1,8 @@
 import { ReactNode } from "react";
-import { Box, TextField } from "@mui/material";
 import Label from "../Label/Label";
 import "./TextInputBEM.css";
 
-interface Props {
+export interface Props {
   htmlId: string;
   name: string;
   label: string;

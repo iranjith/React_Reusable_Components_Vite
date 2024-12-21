@@ -40,7 +40,7 @@ const RegistrationForm = ({
   };
 
   const validate = ({ email, password }: User) => {
-    const errors: { email?: string; password?: string } = {};
+    const errors: User = { email: "", password: "" };
 
     if (!email) errors.email = "Email required.";
     if (password.length < minPasswordLength)

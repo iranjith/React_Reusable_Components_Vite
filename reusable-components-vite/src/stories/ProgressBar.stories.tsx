@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
-import ProgressBar from "../components/ProgressBar/ProgressBar";
+import ProgressBar, {
+  Props as ProgressBarProps,
+} from "../components/ProgressBar/ProgressBar";
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta = {
+const meta: Meta<ProgressBarProps> = {
   title: "Atoms/ProgressBar",
   component: ProgressBar,
   parameters: {

@@ -1,9 +1,8 @@
-import React, { MouseEventHandler, useState } from "react";
+import React, { useState } from "react";
 import EyeIcon from "../EyeIcon/EyeIcon";
-import ProgressBar from "../ProgressBar/ProgressBar";
 import TextInput from "../TextInput/TextInput";
 
-interface PasswordProps {
+export interface PasswordProps {
   htmlId: string;
   name: string;
   value: any;

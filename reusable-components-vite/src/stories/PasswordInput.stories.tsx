@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import PasswordInput from "../components/PasswordInput/PasswordInput";
+import PasswordInput, {
+  PasswordProps,
+} from "../components/PasswordInput/PasswordInput";
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta = {
+const meta: Meta<PasswordProps> = {
   title: "Components/PasswordInput",
   component: PasswordInput,
   parameters: {

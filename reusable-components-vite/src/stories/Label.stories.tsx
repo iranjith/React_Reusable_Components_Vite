@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Label from "../components/Label/Label";
+import Label, { Props as LabelProps } from "../components/Label/Label";
 
-const meta = {
+const meta: Meta<LabelProps> = {
   title: "Atoms/Label",
   component: Label,
   parameters: {

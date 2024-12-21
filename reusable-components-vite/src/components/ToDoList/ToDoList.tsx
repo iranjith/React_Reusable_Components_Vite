@@ -33,9 +33,9 @@ const ToDoList = () => {
           <div>
             <button
               style={buttonStyles}
-              onClick={() => {
-                setTodoItem([...todoItem, ref.current?.value]);
-              }}
+              // onClick={() => {
+              //   setTodoItem([...todoItem, ref.current?.value]);
+              // }}
             >
               Submit
             </button>
@@ -47,7 +47,7 @@ const ToDoList = () => {
               <span>{item}</span>
               <button
                 style={buttonStyles}
-                onClick={(event) => {
+                onClick={() => {
                   const filteredTodos = todoItem.filter((e) => e !== item);
                   setTodoItem(filteredTodos);
                 }}

@@ -1,6 +1,4 @@
-import { InputLabel } from "@mui/material";
-
-interface Props {
+export interface Props {
   htmlFor: string;
   label: string;
   required?: boolean;

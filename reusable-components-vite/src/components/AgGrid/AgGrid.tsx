@@ -49,7 +49,7 @@ const AgGrid = () => {
       className="ag-theme-quartz" // applying the Data Grid theme
       style={{ height: 500 }} // the Data Grid will fill the size of the parent container
     >
-      <AgGridReact rowData={rowData} columnDefs={columnDefs} />
+      <AgGridReact rowData={rowData} />
     </div>
   );
 };

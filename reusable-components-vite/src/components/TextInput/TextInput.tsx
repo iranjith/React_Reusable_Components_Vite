@@ -1,8 +1,7 @@
 import { ReactNode } from "react";
-import { Box, TextField } from "@mui/material";
 import Label from "../Label/Label";
 
-interface Props {
+export interface Props {
   htmlId: string;
   name: string;
   label: string;
@@ -40,7 +39,7 @@ const TextInput = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        style={error && { border: "solid 1px red" }}
+        style={error ? { border: "solid 1px red" } : undefined}
         {...props}
       />
       {children}

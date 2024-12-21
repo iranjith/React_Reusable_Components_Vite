@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
-import TextInputBEM from "../components/TextInputBEM/TextInputBEM";
+import TextInputBEM, {
+  Props as TextInputBEMProps,
+} from "../components/TextInputBEM/TextInputBEM";
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta = {
+const meta: Meta<TextInputBEMProps> = {
   title: "Atoms/TextInputBEM",
   component: TextInputBEM,
   parameters: {
