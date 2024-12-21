@@ -4,7 +4,7 @@ import TransitionHook, {
 } from "../components/TransitionHook/TransitionHook";
 
 const meta: Meta<TransitionHookProps> = {
-  title: "Exanples/TransitionHook",
+  title: "EXAMPLES/TransitionHook",
   component: TransitionHook,
   parameters: {
     layout: "centered",
