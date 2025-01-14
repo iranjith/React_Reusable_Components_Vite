@@ -14,7 +14,7 @@ const TransitionHook = ({ enableTransition = true }: TransitionHookProps) => {
     setText(value); // High-priority update for input
 
     const updateList = () => {
-      const filteredList = Array(10000)
+      const filteredList = Array(100000)
         .fill(0)
         .map((_, i) => `Item ${i + 1}`)
         .filter((item) => item.toLowerCase().includes(value.toLowerCase()));
