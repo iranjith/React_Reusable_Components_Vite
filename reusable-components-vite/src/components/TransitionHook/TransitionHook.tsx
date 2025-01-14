@@ -11,7 +11,7 @@ const TransitionHook = ({ enableTransition = true }: TransitionHookProps) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setText(value); // High-priority update for input
+    setText(value);
 
     const updateList = () => {
       const filteredList = Array(100000)
