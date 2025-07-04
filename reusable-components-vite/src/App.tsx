@@ -1,5 +1,8 @@
 import "./App.css";
-// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+// import AgGrid from "./components/AgGrid/AgGrid";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import UsersGrid from "./components/AgGrid/AgGrid";
 // import ListWithQuery from "./components/ListWithQuery/ListWithQuery";
 // import JSONSchemaPlayground from "./components/JSONSchemaPlayground/JSONSchemaPlayground";
 // import DynamicTable from "./components/DynamicTable/DynamicTable";
@@ -10,17 +13,21 @@ import "./App.css";
 // import Welcome from "./components/Emails/Welcome";
 // import TransitionHook from "./components/TransitionHook/TransitionHook";
 // import AppPage from "./components/UrlAsState/AppPage";
-import UrlStatePage from "./components/UrlAsState/AppPage";
-import { BrowserRouter } from "react-router-dom";
+// import UrlStatePage from "./components/UrlAsState/AppPage";
+// import { BrowserRouter } from "react-router-dom";
 
-//const queryClient = new QueryClient();
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <UsersGrid />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+      {/* <BrowserRouter>
         <UrlStatePage />
-      </BrowserRouter>
+      </BrowserRouter> */}
       {/* <QueryClientProvider client={queryClient}>
         <ListWithQuery />
       </QueryClientProvider> */}

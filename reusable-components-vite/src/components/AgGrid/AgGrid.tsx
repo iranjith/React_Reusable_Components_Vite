@@ -1,57 +1,101 @@
-import { useEffect, useState } from "react";
-import { AgGridReact } from "ag-grid-react"; // React Data Grid Component
-import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
-import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the Data Grid
-import { mockGridData } from "./mockData";
+import { useQuery } from "@tanstack/react-query";
+import type { ColDef } from "ag-grid-community";
+import { AgGridReact } from "ag-grid-react";
+import { useMemo, useState } from "react";
 
-interface ColumnProps {
-  headerName: string;
-  field: string;
-  sortable: boolean;
-  filter: boolean;
-}
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-alpine.css";
 
-interface RowProps {
+// ──────────────────────────────────────────────
+// CONFIG
+// ──────────────────────────────────────────────
+const PAGE_SIZE = 20;
+
+type User = {
   id: number;
-  name: string;
-  age: number;
-  country: string;
+  firstName: string;
+  lastName: string;
   email: string;
-}
+  age: number;
+};
 
-const AgGrid = () => {
-  const [columnDefs, setColumnDefs] = useState<ColumnProps[]>([]);
-  const [rowData, setRowData] = useState<RowProps[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+// DummyJSON fetcher
+const fetchUsersPage = async (page: number) => {
+  const skip = page * PAGE_SIZE;
+  const res = await fetch(
+    `https://dummyjson.com/users?limit=${PAGE_SIZE}&skip=${skip}`
+  );
+  if (!res.ok) throw new Error("Network error");
+  const data: {
+    users: User[];
+    total: number;
+    skip: number;
+    limit: number;
+  } = await res.json();
 
-  useEffect(() => {
-    const fetchData = () => {
-      try {
-        const data = mockGridData;
-        setColumnDefs(data.columns);
-        setRowData(data.rows);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  return { rows: data.users, total: data.total };
+};
 
-    fetchData();
-  }, []);
+const UsersGrid = () => {
+  const [page, setPage] = useState(0);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const { data, isFetching } = useQuery({
+    queryKey: ["users", page],
+    queryFn: () => fetchUsersPage(page),
+    staleTime: 60_000,
+  });
+
+  const columnDefs = useMemo<ColDef<User>[]>(
+    () => [
+      { field: "id", headerName: "ID", width: 80 },
+      { field: "firstName", headerName: "First Name", flex: 1 },
+      { field: "lastName", headerName: "Last Name", flex: 1 },
+      { field: "email", flex: 1 },
+      { field: "age", width: 90 },
+    ],
+    []
+  );
+
+  const totalPages = data ? Math.ceil(data.total / PAGE_SIZE) : 0;
 
   return (
-    <div
-      className="ag-theme-quartz" // applying the Data Grid theme
-      style={{ height: 500 }} // the Data Grid will fill the size of the parent container
-    >
-      <AgGridReact rowData={rowData} />
-    </div>
+    <>
+      <div className="ag-theme-alpine" style={{ height: 500 }}>
+        <AgGridReact
+          rowData={data?.rows ?? []}
+          columnDefs={columnDefs}
+          pagination={false}
+        />
+      </div>
+
+      {/* pager */}
+      <div style={{ marginTop: 8 }}>
+        <button
+          onClick={() => setPage((p) => Math.max(p - 1, 0))}
+          disabled={page === 0}
+        >
+          ◀ Prev
+        </button>
+
+        <span style={{ margin: "0 8px" }}>
+          Page {page + 1} / {totalPages || "…"}
+        </span>
+
+        <button
+          onClick={() =>
+            setPage((p) =>
+              data && (p + 1) * PAGE_SIZE < data.total ? p + 1 : p
+            )
+          }
+          disabled={!data || (page + 1) * PAGE_SIZE >= (data?.total ?? 0)}
+        >
+          Next ▶
+        </button>
+
+        {isFetching && <span style={{ marginLeft: 12 }}>Updating…</span>}
+      </div>
+    </>
   );
 };
 
-export default AgGrid;
+export default UsersGrid;
