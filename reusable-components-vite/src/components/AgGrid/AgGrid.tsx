@@ -39,7 +39,7 @@ const fetchUsersPage = async (page: number) => {
 const UsersGrid = () => {
   const [page, setPage] = useState(0);
 
-  const { data, isFetching } = useQuery({
+  const { data, isLoading, isFetching } = useQuery({
     queryKey: ["users", page],
     queryFn: () => fetchUsersPage(page),
     staleTime: 60_000,
@@ -57,6 +57,10 @@ const UsersGrid = () => {
   );
 
   const totalPages = data ? Math.ceil(data.total / PAGE_SIZE) : 0;
+
+  if (isLoading) {
+    return <h3>Loading..</h3>;
+  }
 
   return (
     <>

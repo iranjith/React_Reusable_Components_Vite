@@ -43,6 +43,10 @@ const PaginatedAgGrid = (args: any) => {
     staleTime: 60_000,
   });
 
+  if (isLoading) {
+    return <h3>Loading..</h3>;
+  }
+
   return (
     <div>
       <UsersGrid {...args} rowData={data?.rows || []} loading={isLoading} />
